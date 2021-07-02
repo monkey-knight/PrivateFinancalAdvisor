@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>基金信息</title>
+    <link rel="stylesheet" th:href="@{/css/found.css}">
+</head>
+<body>
+<div>
+    <p>基金总数：<strong th:text="${foundInfo.size()}"></strong></p>
+    <table id="founds">
+        <tr>
+            <th>股票代码</th>
+            <th>股票名称</th>
+            <th>股票类型</th>
+            <th>股票拼音全称</th>
+            <th>股票拼音简称</th>
+        </tr>
+        <tr th:each="found:${foundInfo}">
+            <td th:text="${found.getId()}"></td>
+            <td th:text="${found.getName()}"></td>
+            <td th:text="${found.getType()}"></td>
+            <td th:text="${found.getPinYinFullName()}"></td>
+            <td th:text="${found.getPinYinShortName()}"></td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
